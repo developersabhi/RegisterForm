@@ -1,0 +1,73 @@
+<p>signup works!</p>
+<mat-card>
+    <mat-card-header>
+        <h1>User Registeration</h1>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form class="example-form"  [formGroup]="signupform" (ngSubmit)="proceedSignup()">
+            <mat-form-field class="example-full-width">
+                <mat-label>UserName</mat-label>
+                <input matInput formControlName="username">
+                <span *ngIf="f['username'].getError('required')!=null" class="errormessage">*username required</span>
+                <span *ngIf="f['username'].getError('minlength')!=null" class="errormessage">username minimum length is 4</span>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="fname">
+                <span *ngIf="f['fname'].getError('required')!=null" class="errormessage">*First Name is required</span>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lname">
+                <span *ngIf="f['lname'].getError('required')!=null" class="errormessage">*First Name is required</span>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <span *ngIf="f['email'].getError('required')!=null" class="errormessage">*Email is required</span>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <!-- <input type="password" matInput   formControlName="password"> -->
+                <input type="password" matInput formControlName="password" >
+                <span  *ngIf="f['password'].getError('required')!=null"class="errormessage">*Enter password</span>
+                <span  *ngIf="f['password'].getError('pattern')!=null"class="errormessage">Your password conbination of capital alfabate,special charecter,numbers,</span>
+            </mat-form-field>
+            <br>
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput formControlName="cpasword" >
+                <span  *ngIf="f['cpasword'].getError('required')!=null"class="errormessage">Confirm password</span>
+                <span  *ngIf="f['cpasword'].getError('Mustmatch')!=null"class="errormessage">password mismatch</span>
+            </mat-form-field>
+            <br>
+
+            <div>
+                <mat-radio-group aria-label="Gender" formControlName="gender">
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+            <br>
+            <div>
+                <button mat-button color="primary" style="background-color: rgb(23, 23, 43);" >Submit</button>
+                <a routerLink="/login" mat-button color="accent" style="background-color: rgb(52, 104, 146); margin-left: 2%;">Back to Login</a>
+            </div>
+
+        </form>
+
+    </mat-card-content>
+</mat-card>
+
+
